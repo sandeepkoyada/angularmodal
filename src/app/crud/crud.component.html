@@ -1,0 +1,186 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+       
+        <div *ngIf="newEmployeeClicked">
+        <div class="formWrapper">
+        <form>
+          <div class="form-group username">
+              <!-- <label for="name">Name:</label> -->
+              <input type="text"
+                     class="form-control"
+                     id="uname"
+                     name="uname"
+                     [(ngModel)]="model.uname"
+                     placeholder="User Name">
+            </div>
+          
+             <div class="form-group firstname">
+              <!-- <label for="position">Position:</label> -->
+              <input type="text"
+                     class="form-control"
+                     id="fname"
+                     name="fname"
+                     [(ngModel)]="model.fname"
+                     placeholder="First Name">
+            </div>
+        
+            <div class="form-group lastname">
+                <!-- <label for="position">Position:</label> -->
+                <input type="text"
+                       class="form-control"
+                       id="lname"
+                       name="lname"
+                       [(ngModel)]="model.lname"
+                       placeholder="Last Name">
+              </div>
+        
+              <div class="form-group email">
+                <!-- <label for="position">Position:</label> -->
+                <input type="text"
+                       class="form-control"
+                       id="email"
+                       name="email"
+                       [(ngModel)]="model.email"
+                       placeholder="Email">
+              </div>
+        
+              <div class="form-group phonee">
+                <!-- <label for="position">Position:</label> -->
+                <input type="text"
+                       class="form-control"
+                       id="phone"
+                       name="phone"
+                       [(ngModel)]="model.phone"
+                       placeholder="Phone">
+              </div>
+          <div class="submitBtnContainer">
+            <button type="submit" class="saveBtn" (click)="addEmployee()">SAVE</button>
+          </div>
+        </form>
+        </div>
+        </div>
+        
+        
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+  
+  <hr>
+  
+  
+
+  <div class="tableWrapper">
+  <div class="containerTitle">
+    <div class="oneTitle">User Name</div>
+    <div class="twoTitle">First Name</div>
+    <div class="threeTitle">Last Name</div>
+    <div class="fourTitle">Email</div>
+    <div class="fiveTitle">Phone</div>
+    <div class="sixTitle">Actions</div>
+    <!-- <div class="four"></div> -->
+  </div>
+  
+  <div class="containerListItems" *ngFor="let employee of employees; let i = index" [style.background-color]="changeColorOne()">
+    <div class="one">{{employee.uname}}</div>
+    <div class="two">{{employee.fname}}</div>
+    <div class="three">{{employee.lname}}</div>
+    <div class="four">{{employee.email}}</div>
+    <div class="five">{{employee.phone}}</div>
+    
+    <div class="six">
+      <href (click)="editEmployee(i)"  (click)="eopen(editcontent)">Edit</href>
+
+
+      <!-- hereeeeeeeeeeeeeeeeeeeeeee -->
+      
+    </div>
+    <!-- <div class="four"></div> -->
+  </div>
+  </div>
+  
+  
+  
+ 
+  <ng-template #editcontent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+       
+        <div *ngIf="newEmployeeClicked">
+        <div class="formWrapper">
+
+  <form>
+    <div class="form-group username">
+      <!-- <label for="name">Name:</label> -->
+      <input type="text"
+             class="form-control"
+             id="uname"
+             name="uname"
+             [(ngModel)]="model2.uname"
+             placeholder="User Name">
+    </div>
+  
+     <div class="form-group firstname">
+      <!-- <label for="position">Position:</label> -->
+      <input type="text"
+             class="form-control"
+             id="fname"
+             name="fname"
+             [(ngModel)]="model2.fname"
+             placeholder="First Name">
+    </div>
+
+    <div class="form-group lastname">
+        <!-- <label for="position">Position:</label> -->
+        <input type="text"
+               class="form-control"
+               id="lname"
+               name="lname"
+               [(ngModel)]="model2.lname"
+               placeholder="Last Name">
+      </div>
+
+      <div class="form-group email">
+        <!-- <label for="position">Position:</label> -->
+        <input type="text"
+               class="form-control"
+               id="emil"
+               name="email"
+               [(ngModel)]="model2.email"
+               placeholder="Email">
+      </div>
+
+      <div class="form-group phonee">
+        <!-- <label for="position">Position:</label> -->
+        <input type="text"
+               class="form-control"
+               id="phone"
+               name="phone"
+               [(ngModel)]="model2.phone"
+               placeholder="Phone">
+      </div>
+    <button type="submit" (click)="updateEmployee()">Update</button>
+  </form>
+</div>
+</div>
+
+
+
+
+</div>
